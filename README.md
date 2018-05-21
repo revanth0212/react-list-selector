@@ -2,7 +2,7 @@
 
 It is a Material UI based React Component that helps in selecting list of items from one list and placing them in the other.
 
-Checkout the demo [here].(https://revanth0212.github.io/react-list-selector/)
+Checkout the demo [here](https://revanth0212.github.io/react-list-selector/).
 
 # Installation
 
