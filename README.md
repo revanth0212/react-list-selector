@@ -14,9 +14,7 @@ npm install react-list-selector
     
     <ListSelector
 	    ref={(node) => {
-    
 		    this.listSeperator = node
-    
 	    }}
 	    unSelectedList={unSelectedList}
 	    selectedList={selectedList}
