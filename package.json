@@ -1,7 +1,7 @@
 {
   "name": "react-list-selector",
-  "version": "1.0.0",
-  "homepage": "https://github.com/revanth0212/react-list-selector",
+  "version": "1.0.1",
+  "homepage": "https://revanth0212.github.io/react-list-selector/",
   "private": false,
   "dependencies": {
     "flow-bin": "^0.72.0",
