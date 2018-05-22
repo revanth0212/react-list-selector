@@ -21,6 +21,7 @@ class ListSelector extends Component<ListSelectorPropTypes, ListSelectorStateTyp
     selectedItemHoverColor: '',
     onUnselectedItemClick: () => {},
     onSelectedItemClick: () => {},
+    onClick: () => {},
   }
 
   constructor(props: ListSelectorPropTypes) {
@@ -43,6 +44,7 @@ class ListSelector extends Component<ListSelectorPropTypes, ListSelectorStateTyp
       selectedList: updatedSelectedList,
     })
     this.props.onUnselectedItemClick(movedItem)
+    this.props.onClick(movedItem, true)
   }
 
   onSelectedItemClick = (id: number) => {
@@ -57,6 +59,7 @@ class ListSelector extends Component<ListSelectorPropTypes, ListSelectorStateTyp
       selectedList: updatedSelectedList,
     })
     this.props.onSelectedItemClick(movedItem)
+    this.props.onClick(movedItem, false)
   }
 
   getUnSelectedList = () => this.state.unSelectedList

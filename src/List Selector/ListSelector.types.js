@@ -54,6 +54,7 @@ export type ListSelectorPropTypes = {
   disableHoverColor?: boolean,
   unSelectedItemHoverColor?: string,
   selectedItemHoverColor?: string,
-  onSelectedItemClick: (item: ListItemConfigWithoutOnClick) => void,
-  onUnselectedItemClick: (item: ListItemConfigWithoutOnClick) => void,
+  onSelectedItemClick?: (item: ListItemConfigWithoutOnClick) => void,
+  onUnselectedItemClick?: (item: ListItemConfigWithoutOnClick) => void,
+  onClick?: (item: ListItemConfigWithoutOnClick, selected: boolean) => void,
 }

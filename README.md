@@ -28,16 +28,17 @@ Make sure your app is wrapped inside `<MuiThemeProvider>` which you can import l
 
 # Props
 
-| Prop                       | Prop Type                        | Default Value | isRequired | Description                                               |
-| -------------------------- | -------------------------------- | ------------- | ---------- | --------------------------------------------------------- |
-| `unSelectedList`           | `Array<ListItemConfig>`          | []            | true       | List of items that will be shown in the un selected list. |
-| `selectedList`             | `Array<ListItemConfig>`          | []            | true       | List of items that will be shown in the selected list.    |
-| `disableHoverColor`        | `boolean`                        | false         | false      | If set, will remove hover color from both the list items. |
-| `unSelectedItemHoverColor` | `string`                         | ''            | false      | Hover color for un selected list items.                   |
-| `selectedItemHoverColor`   | `string`                         | ''            | false      | Hover color for selected list items.                      |
-| `style`                    | `Obejct`                         | {}            | false      | Style for each of the list containers.                    |
-| `onUnselectedItemClick`    | `(item: ListItemConfig) => void` | `() => {}`    | true       | Will be called when an un selected item has been clicked. |
-| `onSelectedItemClick`      | `(item: ListItemConfig) => void` | `() => {}`    | true       | Will be called when a selected item has been clicked.     |
+| Prop                       | Prop Type                                           | Default Value | isRequired | Description                                                                                                                    |
+| -------------------------- | --------------------------------------------------- | ------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `unSelectedList`           | `Array<ListItemConfig>`                             | []            | true       | List of items that will be shown in the un selected list.                                                                      |
+| `selectedList`             | `Array<ListItemConfig>`                             | []            | true       | List of items that will be shown in the selected list.                                                                         |
+| `disableHoverColor`        | `boolean`                                           | false         | false      | If set, will remove hover color from both the list items.                                                                      |
+| `unSelectedItemHoverColor` | `string`                                            | ''            | false      | Hover color for un selected list items.                                                                                        |
+| `selectedItemHoverColor`   | `string`                                            | ''            | false      | Hover color for selected list items.                                                                                           |
+| `style`                    | `Obejct`                                            | {}            | false      | Style for each of the list containers.                                                                                         |
+| `onUnselectedItemClick`    | `(item: ListItemConfig) => void`                    | `() => {}`    | false      | Will be called when an un selected item has been clicked.                                                                      |
+| `onSelectedItemClick`      | `(item: ListItemConfig) => void`                    | `() => {}`    | false      | Will be called when a selected item has been clicked.                                                                          |
+| `onClick`                  | `(item: ListItemConfig, selected: boolean) => void` | `() => {}`    | false      | Will be called when an item has been clicked. Returns the clicked item and also its new state, weather it was selected or not? |
 
 # Functions
 
