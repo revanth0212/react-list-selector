@@ -13,6 +13,12 @@ import type {
 
 class ListSelector extends Component<ListSelectorPropTypes, ListSelectorStateType> {
   static defaultProps = {
+    unSelectedList: [],
+    selectedList: [],
+    style: {},
+    disableHoverColor: false,
+    unSelectedItemHoverColor: '',
+    selectedItemHoverColor: '',
     onUnselectedItemClick: () => {},
     onSelectedItemClick: () => {},
   }

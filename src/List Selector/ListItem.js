@@ -14,7 +14,7 @@ const ListItem = ({
   secondaryText,
   style,
   onClick,
-  hoverColor,
+  hoverColor = '',
 }: ListItemPropTypes) => (
   <MUIListItem
     key={id}
