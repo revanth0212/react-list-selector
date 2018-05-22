@@ -1,7 +1,7 @@
 {
   "name": "react-list-selector",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "flow-bin": "^0.72.0",
     "material-ui": "^0.20.1",
