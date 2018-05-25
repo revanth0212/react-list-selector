@@ -46,6 +46,8 @@ Make sure your app is wrapped inside `<MuiThemeProvider>` which you can import l
 | ------------------- | ----------------------------- | -------------------------------------- |
 | `getUnSelectedList` | `() => Array<ListItemConfig>` | Returns the list of un selected items. |
 | `getSelectedList`   | `() => Array<ListItemConfig>` | Returns the list of selected items.    |
+| `selectAll`   | `() => void` | Selects all items.    |
+| `unSelectAll`   | `() => void` | Un selects all items.    |
 
 You can find the type of `ListItemConfig` from the next section.
 

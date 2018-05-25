@@ -66,6 +66,20 @@ class ListSelector extends Component<ListSelectorPropTypes, ListSelectorStateTyp
 
   getSelectedList = () => this.state.selectedList
 
+  selectAll = () => {
+    this.setState({
+      unSelectedList: [],
+      selectedList: [...this.state.selectedList, ...this.state.unSelectedList],
+    })
+  }
+
+  unSelectAll = () => {
+    this.setState({
+      selectedList: [],
+      unSelectedList: [...this.state.unSelectedList, ...this.state.selectedList],
+    })
+  }
+
   moveItemFromList1To2 = (
     list1: Array<ListItemConfigWithoutOnClick>,
     list2: Array<ListItemConfigWithoutOnClick>,
