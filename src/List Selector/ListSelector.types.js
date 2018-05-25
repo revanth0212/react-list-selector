@@ -23,6 +23,7 @@ export type ListContainerPropTypes = {
   listItems: Array<ListItemConfigType>,
   listItemHoverColor: string,
   style?: Object,
+  hideDivider: boolean,
 }
 
 export type ListSelectorViewPropTypes = {
@@ -32,6 +33,7 @@ export type ListSelectorViewPropTypes = {
   disableHoverColor?: boolean,
   unSelectedItemHoverColor?: string,
   selectedItemHoverColor?: string,
+  hideDivider: boolean,
 }
 
 export type ListItemConfigWithoutOnClick = {
@@ -57,4 +59,5 @@ export type ListSelectorPropTypes = {
   onSelectedItemClick?: (item: ListItemConfigWithoutOnClick) => void,
   onUnselectedItemClick?: (item: ListItemConfigWithoutOnClick) => void,
   onClick?: (item: ListItemConfigWithoutOnClick, selected: boolean) => void,
+  hideDivider?: boolean,
 }

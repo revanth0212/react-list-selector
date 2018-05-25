@@ -13,6 +13,7 @@ const ListSelectorView = ({
   disableHoverColor,
   unSelectedItemHoverColor = 'red',
   selectedItemHoverColor = 'green',
+  hideDivider,
 }: ListSelectorViewPropTypes) => (
   <div style={{ display: 'inline-flex' }}>
     <ListContainer
@@ -20,12 +21,14 @@ const ListSelectorView = ({
       listItems={unSelectedList}
       listItemHoverColor={disableHoverColor ? '' : unSelectedItemHoverColor}
       style={style}
+      hideDivider={hideDivider}
     />
     <ListContainer
       key="selectedList"
       listItems={selectedList}
       listItemHoverColor={disableHoverColor ? '' : selectedItemHoverColor}
       style={style}
+      hideDivider={hideDivider}
     />
   </div>
 )

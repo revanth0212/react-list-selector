@@ -39,6 +39,7 @@ Make sure your app is wrapped inside `<MuiThemeProvider>` which you can import l
 | `onUnselectedItemClick`    | `(item: ListItemConfig) => void`                    | `() => {}`    | false      | Will be called when an un selected item has been clicked.                                                                      |
 | `onSelectedItemClick`      | `(item: ListItemConfig) => void`                    | `() => {}`    | false      | Will be called when a selected item has been clicked.                                                                          |
 | `onClick`                  | `(item: ListItemConfig, selected: boolean) => void` | `() => {}`    | false      | Will be called when an item has been clicked. Returns the clicked item and also its new state, weather it was selected or not? |
+| `hideDivider`                  | `boolean` | `false`    | false      | If set will hide the divider after each list item. |
 
 # Functions
 

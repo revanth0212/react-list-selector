@@ -22,6 +22,7 @@ class ListSelector extends Component<ListSelectorPropTypes, ListSelectorStateTyp
     onUnselectedItemClick: () => {},
     onSelectedItemClick: () => {},
     onClick: () => {},
+    hideDivider: false,
   }
 
   constructor(props: ListSelectorPropTypes) {
@@ -122,7 +123,7 @@ class ListSelector extends Component<ListSelectorPropTypes, ListSelectorStateTyp
 
   render() {
     const { unSelectedList, selectedList } = this.state
-    const { style, disableHoverColor, unSelectedItemHoverColor, selectedItemHoverColor } = this.props
+    const { style, disableHoverColor, unSelectedItemHoverColor, selectedItemHoverColor, hideDivider } = this.props
     return (
       <ListSelectorView
         unSelectedList={this.injectOnClick(unSelectedList, this.onUnselectedItemClick)}
@@ -131,6 +132,7 @@ class ListSelector extends Component<ListSelectorPropTypes, ListSelectorStateTyp
         disableHoverColor={disableHoverColor}
         unSelectedItemHoverColor={unSelectedItemHoverColor}
         selectedItemHoverColor={selectedItemHoverColor}
+        hideDivider={hideDivider}
       />
     )
   }

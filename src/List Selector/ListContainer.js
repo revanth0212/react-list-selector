@@ -10,7 +10,12 @@ import type { ListContainerPropTypes } from './ListSelector.types'
 
 const defaultStyle = {}
 
-const ListContainer = ({ listItems, listItemHoverColor, style: containerStyle }: ListContainerPropTypes) => (
+const ListContainer = ({
+  listItems,
+  listItemHoverColor,
+  style: containerStyle,
+  hideDivider,
+}: ListContainerPropTypes) => (
   <List style={containerStyle || defaultStyle}>
     {listItems.map(({ id, disabled, primaryText, secondaryText, style: listItemStyle, onClick }) => (
       <div key={id}>
@@ -24,7 +29,7 @@ const ListContainer = ({ listItems, listItemHoverColor, style: containerStyle }:
           style={listItemStyle}
           hoverColor={listItemHoverColor}
         />
-        <Divider />
+        {hideDivider && <Divider />}
       </div>
     ))}
   </List>
