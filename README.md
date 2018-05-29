@@ -14,7 +14,7 @@ npm install react-list-selector
 
     <ListSelector
         ref={(node) => {
-    	    this.listSeperator = node
+        this.listSeperator = node
         }}
         unSelectedList={unSelectedList}
         selectedList={selectedList}
@@ -22,9 +22,14 @@ npm install react-list-selector
         disableHoverColor={disableHoverColor}
         unSelectedItemHoverColor={unSelectedItemHoverColor}
         selectedItemHoverColor={selectedItemHoverColor}
+        hideBulkUpdateButtons={hideBulkUpdateButtons}
+        SelectAllButton={<SelectAllButton />}
+        UnSelectAllButton={<UnSelectAllButton />}
     />
 
 Make sure your app is wrapped inside `<MuiThemeProvider>` which you can import like this: `import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'`.
+
+Check out [App.js](https://github.com/revanth0212/react-list-selector/blob/master/src/App.js) for a complete example.
 
 # Props
 
@@ -40,6 +45,11 @@ Make sure your app is wrapped inside `<MuiThemeProvider>` which you can import l
 | `onSelectedItemClick`      | `(item: ListItemConfig) => void`                    | `() => {}`    | false      | Will be called when a selected item has been clicked.                                                                          |
 | `onClick`                  | `(item: ListItemConfig, selected: boolean) => void` | `() => {}`    | false      | Will be called when an item has been clicked. Returns the clicked item and also its new state, weather it was selected or not? |
 | `hideDivider`                  | `boolean` | `false`    | false      | If set will hide the divider after each list item. |
+| `hideBulkUpdateButtons` | `boolean` | false | false | Will hide Select All and UnSelect All buttons. |
+| `SelectAllButton` | `Node` | `null` | false | Select All Button that will be shown instead of the default button. `(Click logic will be injected into the node by the ListSelector component.)` |
+| `SelectAllButton` | `Node` | `null` | false | Unselect All Button that will be shown instead of the default button. `(Click logic will be injected into the node by the ListSelector component.)` |
+| `onSelectAllClick` | `() => void` | `() => {}` | false | Will be called when the Select All button is clicked. |
+| `onUnSelectAllClick` | `() => void` | `() => {}` | false | Will be called when the Unselect All button is clicked. |
 
 # Functions
 

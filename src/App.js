@@ -1,7 +1,34 @@
 import React, { Component } from 'react'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import FlatButton from 'material-ui/FlatButton'
+import RightArrow from 'material-ui/svg-icons/navigation/arrow-forward'
+import LeftArrow from 'material-ui/svg-icons/navigation/arrow-back'
 
 import ListSelector from './List Selector'
+
+const SelectAllButton = () => (
+  <FlatButton
+    backgroundColor="rgba(80, 57, 198, 1)"
+    hoverColor="rgba(80, 57, 198, 0.9)"
+    icon={<RightArrow color="white" />}
+    style={{
+      marginTop: 12,
+    }}
+    fullWidth
+  />
+)
+
+const UnSelectAllButton = () => (
+  <FlatButton
+    backgroundColor="rgba(80, 57, 198, 1)"
+    hoverColor="rgba(80, 57, 198, 0.9)"
+    icon={<LeftArrow color="white" />}
+    style={{
+      marginTop: 12,
+    }}
+    fullWidth
+  />
+)
 
 const sampleData = {
   unSelectedList: [
@@ -61,12 +88,16 @@ const sampleData = {
   style: {
     border: '1px solid grey',
     padding: '15px',
-    margin: '10px',
-    minHeight: '250px',
+    margin: '0px 10px 10px 10px',
+    minHeight: '450px',
+    minWidth: '300px',
   },
   disableHoverColor: false,
   unSelectedItemHoverColor: '#14569d',
   selectedItemHoverColor: 'orange',
+  SelectAllButton,
+  UnSelectAllButton,
+  hideBulkUpdateButtons: false,
 }
 
 /* eslint-disable react/prefer-stateless-function */
@@ -79,6 +110,9 @@ class App extends Component {
       disableHoverColor,
       unSelectedItemHoverColor,
       selectedItemHoverColor,
+      hideBulkUpdateButtons,
+      SelectAllButton,
+      UnSelectAllButton,
     } = sampleData
     return (
       <MuiThemeProvider>
@@ -92,6 +126,9 @@ class App extends Component {
           disableHoverColor={disableHoverColor}
           unSelectedItemHoverColor={unSelectedItemHoverColor}
           selectedItemHoverColor={selectedItemHoverColor}
+          hideBulkUpdateButtons={hideBulkUpdateButtons}
+          SelectAllButton={<SelectAllButton />}
+          UnSelectAllButton={<UnSelectAllButton />}
         />
       </MuiThemeProvider>
     )

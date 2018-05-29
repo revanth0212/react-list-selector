@@ -14,6 +14,9 @@ const ListSelectorView = ({
   unSelectedItemHoverColor = 'red',
   selectedItemHoverColor = 'green',
   hideDivider,
+  hideBulkUpdateButtons,
+  selectAllButton,
+  unSelectAllButton,
 }: ListSelectorViewPropTypes) => (
   <div style={{ display: 'inline-flex' }}>
     <ListContainer
@@ -22,6 +25,8 @@ const ListSelectorView = ({
       listItemHoverColor={disableHoverColor ? '' : unSelectedItemHoverColor}
       style={style}
       hideDivider={hideDivider}
+      bulkUpdateButton={selectAllButton}
+      hideBulkUpdateButton={hideBulkUpdateButtons}
     />
     <ListContainer
       key="selectedList"
@@ -29,6 +34,8 @@ const ListSelectorView = ({
       listItemHoverColor={disableHoverColor ? '' : selectedItemHoverColor}
       style={style}
       hideDivider={hideDivider}
+      bulkUpdateButton={unSelectAllButton}
+      hideBulkUpdateButton={hideBulkUpdateButtons}
     />
   </div>
 )

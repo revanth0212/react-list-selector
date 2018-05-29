@@ -1,6 +1,9 @@
 // @flow
 
 import React, { Component } from 'react'
+import FlatButton from 'material-ui/FlatButton'
+import RightArrow from 'material-ui/svg-icons/navigation/arrow-forward'
+import LeftArrow from 'material-ui/svg-icons/navigation/arrow-back'
 
 import ListSelectorView from './ListSelector.view'
 
@@ -23,6 +26,9 @@ class ListSelector extends Component<ListSelectorPropTypes, ListSelectorStateTyp
     onSelectedItemClick: () => {},
     onClick: () => {},
     hideDivider: false,
+    hideBulkUpdateButtons: true,
+    onSelectAllClick: () => {},
+    onUnSelectAllClick: () => {},
   }
 
   constructor(props: ListSelectorPropTypes) {
@@ -68,24 +74,84 @@ class ListSelector extends Component<ListSelectorPropTypes, ListSelectorStateTyp
   getSelectedList = () => this.state.selectedList
 
   selectAll = () => {
-    this.setState({
-      unSelectedList: [],
-      selectedList: [...this.state.selectedList, ...this.state.unSelectedList],
+    const disabledItems = []
+    const enabledItems = []
+    this.state.unSelectedList.forEach((unselectedItem) => {
+      if (unselectedItem.disabled) {
+        disabledItems.push(unselectedItem)
+      } else {
+        enabledItems.push(unselectedItem)
+      }
     })
+    this.setState({
+      unSelectedList: disabledItems,
+      selectedList: [...this.state.selectedList, ...enabledItems],
+    })
+    this.props.onSelectAllClick()
   }
 
   unSelectAll = () => {
-    this.setState({
-      selectedList: [],
-      unSelectedList: [...this.state.unSelectedList, ...this.state.selectedList],
+    const disabledItems = []
+    const enabledItems = []
+    this.state.selectedList.forEach((selectedItem) => {
+      if (selectedItem.disabled) {
+        disabledItems.push(selectedItem)
+      } else {
+        enabledItems.push(selectedItem)
+      }
     })
+    this.setState({
+      selectedList: disabledItems,
+      unSelectedList: [...this.state.unSelectedList, ...enabledItems],
+    })
+    this.props.onUnSelectAllClick()
   }
+
+  SelectAllButton = (
+    <div onClick={this.selectAll}>
+      {this.props.SelectAllButton ? (
+        this.props.SelectAllButton
+      ) : (
+        <FlatButton
+          backgroundColor="rgba(80, 57, 198, 1)"
+          hoverColor="rgba(80, 57, 198, 0.9)"
+          icon={<RightArrow color="white" />}
+          style={{
+            marginTop: 12,
+          }}
+          fullWidth
+        />
+      )}
+    </div>
+  )
+
+  UnSelectAllButton = (
+    <div onClick={this.unSelectAll}>
+      {this.props.UnSelectAllButton ? (
+        this.props.UnSelectAllButton
+      ) : (
+        <FlatButton
+          backgroundColor="rgba(80, 57, 198, 1)"
+          hoverColor="rgba(80, 57, 198, 0.9)"
+          icon={<LeftArrow color="white" />}
+          style={{
+            marginTop: 12,
+          }}
+          fullWidth
+        />
+      )}
+    </div>
+  )
 
   moveItemFromList1To2 = (
     list1: Array<ListItemConfigWithoutOnClick>,
     list2: Array<ListItemConfigWithoutOnClick>,
     id: number
-  ) => {
+  ): {
+    list1: Array<ListItemConfigWithoutOnClick>,
+    list2: Array<ListItemConfigWithoutOnClick>,
+    movedItem: ListItemConfigWithoutOnClick,
+  } => {
     const { updatedList: updatedList1, itemObject } = this.popIdFromList(list1, id)
     const updatedList2 = this.pushItemIntoList(list2, itemObject)
     return {
@@ -95,7 +161,10 @@ class ListSelector extends Component<ListSelectorPropTypes, ListSelectorStateTyp
     }
   }
 
-  popIdFromList = (itemsList: Array<ListItemConfigWithoutOnClick>, id: number) => {
+  popIdFromList = (
+    itemsList: Array<ListItemConfigWithoutOnClick>,
+    id: number
+  ): { updatedList: Array<ListItemConfigWithoutOnClick>, itemObject: ListItemConfigWithoutOnClick } => {
     const updatedList = []
     let objectWithGivenId = {}
     itemsList.forEach((itemObject) => {
@@ -111,7 +180,10 @@ class ListSelector extends Component<ListSelectorPropTypes, ListSelectorStateTyp
     }
   }
 
-  pushItemIntoList = (itemsList: Array<ListItemConfigWithoutOnClick>, itemObject: ListItemConfigWithoutOnClick) => {
+  pushItemIntoList = (
+    itemsList: Array<ListItemConfigWithoutOnClick>,
+    itemObject: ListItemConfigWithoutOnClick
+  ): Array<ListItemConfigWithoutOnClick> => {
     itemsList.push(itemObject)
     return itemsList
   }
@@ -123,7 +195,14 @@ class ListSelector extends Component<ListSelectorPropTypes, ListSelectorStateTyp
 
   render() {
     const { unSelectedList, selectedList } = this.state
-    const { style, disableHoverColor, unSelectedItemHoverColor, selectedItemHoverColor, hideDivider } = this.props
+    const {
+      style,
+      disableHoverColor,
+      unSelectedItemHoverColor,
+      selectedItemHoverColor,
+      hideDivider,
+      hideBulkUpdateButtons,
+    } = this.props
     return (
       <ListSelectorView
         unSelectedList={this.injectOnClick(unSelectedList, this.onUnselectedItemClick)}
@@ -133,6 +212,9 @@ class ListSelector extends Component<ListSelectorPropTypes, ListSelectorStateTyp
         unSelectedItemHoverColor={unSelectedItemHoverColor}
         selectedItemHoverColor={selectedItemHoverColor}
         hideDivider={hideDivider}
+        hideBulkUpdateButtons={hideBulkUpdateButtons}
+        selectAllButton={this.SelectAllButton}
+        unSelectAllButton={this.UnSelectAllButton}
       />
     )
   }

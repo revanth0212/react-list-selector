@@ -1,5 +1,7 @@
 // @flow
 
+import React from 'react'
+
 export type ListItemPropTypes = {
   id: number,
   disabled?: boolean,
@@ -24,16 +26,21 @@ export type ListContainerPropTypes = {
   listItemHoverColor: string,
   style?: Object,
   hideDivider: boolean,
+  hideBulkUpdateButton: boolean,
+  bulkUpdateButton: React.Element,
 }
 
 export type ListSelectorViewPropTypes = {
   unSelectedList: Array<ListItemConfigType>,
   selectedList: Array<ListItemConfigType>,
-  style?: Object,
-  disableHoverColor?: boolean,
-  unSelectedItemHoverColor?: string,
-  selectedItemHoverColor?: string,
+  style: Object,
+  disableHoverColor: boolean,
+  unSelectedItemHoverColor: string,
+  selectedItemHoverColor: string,
   hideDivider: boolean,
+  hideBulkUpdateButtons: boolean,
+  selectAllButton: React.Element,
+  unSelectAllButton: React.Element,
 }
 
 export type ListItemConfigWithoutOnClick = {
@@ -52,12 +59,17 @@ export type ListSelectorStateType = {
 export type ListSelectorPropTypes = {
   unSelectedList: Array<ListItemConfigWithoutOnClick>,
   selectedList: Array<ListItemConfigWithoutOnClick>,
-  style?: Object,
-  disableHoverColor?: boolean,
-  unSelectedItemHoverColor?: string,
-  selectedItemHoverColor?: string,
-  onSelectedItemClick?: (item: ListItemConfigWithoutOnClick) => void,
-  onUnselectedItemClick?: (item: ListItemConfigWithoutOnClick) => void,
-  onClick?: (item: ListItemConfigWithoutOnClick, selected: boolean) => void,
-  hideDivider?: boolean,
+  style: Object,
+  disableHoverColor: boolean,
+  unSelectedItemHoverColor: string,
+  selectedItemHoverColor: string,
+  onSelectedItemClick: (item: ListItemConfigWithoutOnClick) => void,
+  onUnselectedItemClick: (item: ListItemConfigWithoutOnClick) => void,
+  onClick: (item: ListItemConfigWithoutOnClick, selected: boolean) => void,
+  hideDivider: boolean,
+  hideBulkUpdateButtons: boolean,
+  SelectAllButton: React.Element,
+  UnSelectAllButton: React.Element,
+  onSelectAllClick: () => void,
+  onUnSelectAllClick: () => void,
 }
