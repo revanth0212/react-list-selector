@@ -4,7 +4,7 @@ import FlatButton from 'material-ui/FlatButton'
 import RightArrow from 'material-ui/svg-icons/navigation/arrow-forward'
 import LeftArrow from 'material-ui/svg-icons/navigation/arrow-back'
 
-import ListSelector from './List Selector'
+import ListSelector from './ListSelector'
 
 const SelectAllButton = () => (
   <FlatButton
@@ -101,6 +101,7 @@ const sampleData = {
 }
 
 /* eslint-disable react/prefer-stateless-function */
+/* eslint-disable no-shadow */
 class App extends Component {
   render() {
     const {
@@ -134,6 +135,7 @@ class App extends Component {
     )
   }
 }
+/* eslint-enable no-shadow */
 /* eslint-enable react/prefer-stateless-function */
 
 export default App
