@@ -16,8 +16,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build":
-      "rm -rf dist && mkdir dist && SET NODE_ENV=production babel src/ListSelector --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__",
+    "build": "SET NODE_ENV=production && rm -rf dist && mkdir dist && npx babel src/ListSelector --out-dir dist --copy-files",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "flow": "flow",
@@ -27,6 +26,9 @@
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.2",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "eslint": "^4.18.2",
     "eslint-config-airbnb-easy": "^1.0.10",
     "eslint-plugin-flowtype": "^2.39.1",
