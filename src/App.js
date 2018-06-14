@@ -87,10 +87,10 @@ const sampleData = {
   ],
   style: {
     border: '1px solid grey',
-    padding: '15px',
+    padding: '5px 15px 20px 15px',
     margin: '0px 10px 10px 10px',
-    minHeight: '450px',
-    minWidth: '300px',
+    height: '450px',
+    width: '300px',
   },
   disableHoverColor: false,
   unSelectedItemHoverColor: '#14569d',

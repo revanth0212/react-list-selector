@@ -20,23 +20,25 @@ const ListContainer = ({
 }: ListContainerPropTypes) => (
   <div style={containerStyle || defaultStyle}>
     {!hideBulkUpdateButton && bulkUpdateButton}
-    <List>
-      {listItems.map(({ id, disabled, primaryText, secondaryText, style: listItemStyle, onClick }) => (
-        <div key={id}>
-          <ListItem
-            id={id}
-            disabled={disabled}
-            primaryText={primaryText}
-            secondaryText={secondaryText}
-            secondaryTextLines={1}
-            onClick={onClick}
-            style={listItemStyle}
-            hoverColor={listItemHoverColor}
-          />
-          {hideDivider && <Divider />}
-        </div>
-      ))}
-    </List>
+    <div style={{ overflow: 'auto', height: '90%' }}>
+      <List>
+        {listItems.map(({ id, disabled, primaryText, secondaryText, style: listItemStyle, onClick }) => (
+          <div key={id}>
+            <ListItem
+              id={id}
+              disabled={disabled}
+              primaryText={primaryText}
+              secondaryText={secondaryText}
+              secondaryTextLines={1}
+              onClick={onClick}
+              style={listItemStyle}
+              hoverColor={listItemHoverColor}
+            />
+            {hideDivider && <Divider />}
+          </div>
+        ))}
+      </List>
+    </div>
   </div>
 )
 
