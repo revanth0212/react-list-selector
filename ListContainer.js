@@ -36,31 +36,35 @@ var ListContainer = function ListContainer(_ref) {
     { style: containerStyle || defaultStyle },
     !hideBulkUpdateButton && bulkUpdateButton,
     _react2.default.createElement(
-      _List2.default,
-      null,
-      listItems.map(function (_ref2) {
-        var id = _ref2.id,
-            disabled = _ref2.disabled,
-            primaryText = _ref2.primaryText,
-            secondaryText = _ref2.secondaryText,
-            listItemStyle = _ref2.style,
-            onClick = _ref2.onClick;
-        return _react2.default.createElement(
-          'div',
-          { key: id },
-          _react2.default.createElement(_ListItem2.default, {
-            id: id,
-            disabled: disabled,
-            primaryText: primaryText,
-            secondaryText: secondaryText,
-            secondaryTextLines: 1,
-            onClick: onClick,
-            style: listItemStyle,
-            hoverColor: listItemHoverColor
-          }),
-          hideDivider && _react2.default.createElement(_Divider2.default, null)
-        );
-      })
+      'div',
+      { style: { overflow: 'auto', height: '90%' } },
+      _react2.default.createElement(
+        _List2.default,
+        null,
+        listItems.map(function (_ref2) {
+          var id = _ref2.id,
+              disabled = _ref2.disabled,
+              primaryText = _ref2.primaryText,
+              secondaryText = _ref2.secondaryText,
+              listItemStyle = _ref2.style,
+              onClick = _ref2.onClick;
+          return _react2.default.createElement(
+            'div',
+            { key: id },
+            _react2.default.createElement(_ListItem2.default, {
+              id: id,
+              disabled: disabled,
+              primaryText: primaryText,
+              secondaryText: secondaryText,
+              secondaryTextLines: 1,
+              onClick: onClick,
+              style: listItemStyle,
+              hoverColor: listItemHoverColor
+            }),
+            hideDivider && _react2.default.createElement(_Divider2.default, null)
+          );
+        })
+      )
     )
   );
 };
