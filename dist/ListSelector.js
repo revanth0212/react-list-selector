@@ -59,9 +59,10 @@ var ListSelector = function (_Component) {
       _this.setState({
         unSelectedList: updatedUnSelectedList,
         selectedList: updatedSelectedList
+      }, function () {
+        _this.props.onUnselectedItemClick(movedItem);
+        _this.props.onClick(movedItem, true);
       });
-      _this.props.onUnselectedItemClick(movedItem);
-      _this.props.onClick(movedItem, true);
     };
 
     _this.onSelectedItemClick = function (id) {
@@ -77,9 +78,10 @@ var ListSelector = function (_Component) {
       _this.setState({
         unSelectedList: updatedUnSelectedList,
         selectedList: updatedSelectedList
+      }, function () {
+        _this.props.onSelectedItemClick(movedItem);
+        _this.props.onClick(movedItem, false);
       });
-      _this.props.onSelectedItemClick(movedItem);
-      _this.props.onClick(movedItem, false);
     };
 
     _this.getUnSelectedList = function () {
@@ -103,8 +105,7 @@ var ListSelector = function (_Component) {
       _this.setState({
         unSelectedList: disabledItems,
         selectedList: [].concat(_toConsumableArray(_this.state.selectedList), enabledItems)
-      });
-      _this.props.onSelectAllClick();
+      }, _this.props.onSelectAllClick);
     };
 
     _this.unSelectAll = function () {
@@ -120,8 +121,7 @@ var ListSelector = function (_Component) {
       _this.setState({
         selectedList: disabledItems,
         unSelectedList: [].concat(_toConsumableArray(_this.state.unSelectedList), enabledItems)
-      });
-      _this.props.onUnSelectAllClick();
+      }, _this.props.onUnSelectAllClick);
     };
 
     _this.SelectAllButton = _react2.default.createElement(
