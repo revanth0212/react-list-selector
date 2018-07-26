@@ -46,12 +46,16 @@ class ListSelector extends Component<ListSelectorPropTypes, ListSelectorStateTyp
       selectedList,
       id
     )
-    this.setState({
-      unSelectedList: updatedUnSelectedList,
-      selectedList: updatedSelectedList,
-    })
-    this.props.onUnselectedItemClick(movedItem)
-    this.props.onClick(movedItem, true)
+    this.setState(
+      {
+        unSelectedList: updatedUnSelectedList,
+        selectedList: updatedSelectedList,
+      },
+      () => {
+        this.props.onUnselectedItemClick(movedItem)
+        this.props.onClick(movedItem, true)
+      }
+    )
   }
 
   onSelectedItemClick = (id: number) => {
@@ -61,12 +65,16 @@ class ListSelector extends Component<ListSelectorPropTypes, ListSelectorStateTyp
       unSelectedList,
       id
     )
-    this.setState({
-      unSelectedList: updatedUnSelectedList,
-      selectedList: updatedSelectedList,
-    })
-    this.props.onSelectedItemClick(movedItem)
-    this.props.onClick(movedItem, false)
+    this.setState(
+      {
+        unSelectedList: updatedUnSelectedList,
+        selectedList: updatedSelectedList,
+      },
+      () => {
+        this.props.onSelectedItemClick(movedItem)
+        this.props.onClick(movedItem, false)
+      }
+    )
   }
 
   getUnSelectedList = () => this.state.unSelectedList
@@ -83,11 +91,13 @@ class ListSelector extends Component<ListSelectorPropTypes, ListSelectorStateTyp
         enabledItems.push(unselectedItem)
       }
     })
-    this.setState({
-      unSelectedList: disabledItems,
-      selectedList: [...this.state.selectedList, ...enabledItems],
-    })
-    this.props.onSelectAllClick()
+    this.setState(
+      {
+        unSelectedList: disabledItems,
+        selectedList: [...this.state.selectedList, ...enabledItems],
+      },
+      this.props.onSelectAllClick
+    )
   }
 
   unSelectAll = () => {
@@ -100,11 +110,13 @@ class ListSelector extends Component<ListSelectorPropTypes, ListSelectorStateTyp
         enabledItems.push(selectedItem)
       }
     })
-    this.setState({
-      selectedList: disabledItems,
-      unSelectedList: [...this.state.unSelectedList, ...enabledItems],
-    })
-    this.props.onUnSelectAllClick()
+    this.setState(
+      {
+        selectedList: disabledItems,
+        unSelectedList: [...this.state.unSelectedList, ...enabledItems],
+      },
+      this.props.onUnSelectAllClick
+    )
   }
 
   SelectAllButton = (

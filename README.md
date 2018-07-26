@@ -47,7 +47,7 @@ Make sure your app is wrapped inside `<MuiThemeProvider>` which you can import l
 | `hideDivider`                  | `boolean` | false    | false      | If set will hide the divider after each list item. |
 | `hideBulkUpdateButtons` | `boolean` | false | false | Will hide Select All and UnSelect All buttons. |
 | `SelectAllButton` | `Node` | `null` | false | Select All Button that will be shown instead of the default button. **(Click logic will be injected into the node by the ListSelector component.)** |
-| `SelectAllButton` | `Node` | `null` | false | Unselect All Button that will be shown instead of the default button. **(Click logic will be injected into the node by the ListSelector component.)** |
+| `UnSelectAllButton` | `Node` | `null` | false | Unselect All Button that will be shown instead of the default button. **(Click logic will be injected into the node by the ListSelector component.)** |
 | `onSelectAllClick` | `() => void` | `() => {}` | false | Will be called when the Select All button is clicked. |
 | `onUnSelectAllClick` | `() => void` | `() => {}` | false | Will be called when the Unselect All button is clicked. |
 
