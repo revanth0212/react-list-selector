@@ -199,6 +199,17 @@ var ListSelector = function (_Component) {
   }
 
   _createClass(ListSelector, [{
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(_ref) {
+      var unSelectedList = _ref.unSelectedList,
+          selectedList = _ref.selectedList;
+
+      this.setState({
+        unSelectedList: unSelectedList,
+        selectedList: selectedList
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _state = this.state,

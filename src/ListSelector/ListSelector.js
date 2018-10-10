@@ -39,6 +39,13 @@ class ListSelector extends Component<ListSelectorPropTypes, ListSelectorStateTyp
     }
   }
 
+  componentWillReceiveProps({ unSelectedList, selectedList }: ListSelectorPropTypes) {
+    this.setState({
+      unSelectedList,
+      selectedList,
+    })
+  }
+
   onUnselectedItemClick = (id: number) => {
     const { unSelectedList, selectedList } = this.state
     const { list1: updatedUnSelectedList, list2: updatedSelectedList, movedItem } = this.moveItemFromList1To2(
