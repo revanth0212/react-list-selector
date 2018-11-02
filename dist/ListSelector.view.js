@@ -29,7 +29,7 @@ var ListSelectorView = function ListSelectorView(_ref) {
       unSelectAllButton = _ref.unSelectAllButton;
   return _react2.default.createElement(
     'div',
-    { style: { display: 'inline-flex' } },
+    { style: { display: 'inline-flex' }, className: 'listSelector' },
     _react2.default.createElement(_ListContainer2.default, {
       key: 'unSelectedList',
       listItems: unSelectedList,

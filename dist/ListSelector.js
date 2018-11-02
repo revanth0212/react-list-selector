@@ -126,7 +126,7 @@ var ListSelector = function (_Component) {
 
     _this.SelectAllButton = _react2.default.createElement(
       'div',
-      { onClick: _this.selectAll },
+      { onClick: _this.selectAll, className: 'bulkUpdateButton selectAllButton' },
       _this.props.SelectAllButton ? _this.props.SelectAllButton : _react2.default.createElement(_FlatButton2.default, {
         backgroundColor: 'rgba(80, 57, 198, 1)',
         hoverColor: 'rgba(80, 57, 198, 0.9)',
@@ -139,7 +139,7 @@ var ListSelector = function (_Component) {
     );
     _this.UnSelectAllButton = _react2.default.createElement(
       'div',
-      { onClick: _this.unSelectAll },
+      { onClick: _this.unSelectAll, className: 'bulkUpdateButton unSelectAllButton' },
       _this.props.UnSelectAllButton ? _this.props.UnSelectAllButton : _react2.default.createElement(_FlatButton2.default, {
         backgroundColor: 'rgba(80, 57, 198, 1)',
         hoverColor: 'rgba(80, 57, 198, 0.9)',
