@@ -127,7 +127,7 @@ class ListSelector extends Component<ListSelectorPropTypes, ListSelectorStateTyp
   }
 
   SelectAllButton = (
-    <div onClick={this.selectAll}>
+    <div onClick={this.selectAll} className="bulkUpdateButton selectAllButton">
       {this.props.SelectAllButton ? (
         this.props.SelectAllButton
       ) : (
@@ -145,7 +145,7 @@ class ListSelector extends Component<ListSelectorPropTypes, ListSelectorStateTyp
   )
 
   UnSelectAllButton = (
-    <div onClick={this.unSelectAll}>
+    <div onClick={this.unSelectAll} className="bulkUpdateButton unSelectAllButton">
       {this.props.UnSelectAllButton ? (
         this.props.UnSelectAllButton
       ) : (
