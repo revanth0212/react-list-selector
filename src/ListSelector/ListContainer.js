@@ -20,10 +20,10 @@ const ListContainer = ({
 }: ListContainerPropTypes) => (
   <div style={containerStyle || defaultStyle}>
     {!hideBulkUpdateButton && bulkUpdateButton}
-    <div style={{ overflow: 'auto', height: '90%' }}>
+    <div className="listContainer" style={{ overflow: 'auto', height: hideBulkUpdateButton ? '100%' : '90%' }}>
       <List>
         {listItems.map(({ id, disabled, primaryText, secondaryText, style: listItemStyle, onClick }) => (
-          <div key={id}>
+          <div className={`listItem listItem-${id}`} key={id}>
             <ListItem
               id={id}
               disabled={disabled}

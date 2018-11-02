@@ -37,7 +37,7 @@ var ListContainer = function ListContainer(_ref) {
     !hideBulkUpdateButton && bulkUpdateButton,
     _react2.default.createElement(
       'div',
-      { style: { overflow: 'auto', height: '90%' } },
+      { className: 'listContainer', style: { overflow: 'auto', height: hideBulkUpdateButton ? '100%' : '90%' } },
       _react2.default.createElement(
         _List2.default,
         null,
@@ -50,7 +50,7 @@ var ListContainer = function ListContainer(_ref) {
               onClick = _ref2.onClick;
           return _react2.default.createElement(
             'div',
-            { key: id },
+            { className: 'listItem listItem-' + id, key: id },
             _react2.default.createElement(_ListItem2.default, {
               id: id,
               disabled: disabled,

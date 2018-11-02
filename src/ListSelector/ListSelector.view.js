@@ -18,7 +18,7 @@ const ListSelectorView = ({
   selectAllButton,
   unSelectAllButton,
 }: ListSelectorViewPropTypes) => (
-  <div style={{ display: 'inline-flex' }}>
+  <div style={{ display: 'inline-flex' }} className="listSelector">
     <ListContainer
       key="unSelectedList"
       listItems={unSelectedList}
